@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/master.css' %}">
+
+</head>
+
+<div class="heading">Av has written {{blogs.count}} blog{{blogs.count|pluralize}} </div>
+
+{% for blog in blogs %}
+<div class="blog">
+    
+    <a href="{% url 'blog:detail' blog.id %}">
+        <h2>{{blog.title}}</h2>
+    </a>
+    <div class="date">{{blog.date|date:'d M'|upper}}</div>
+    <h4>{{blog.description|striptags|truncatechars:200}}</h4>
+</div>
+<hr>
+
+{% endfor %}
+
+{% endblock %}
