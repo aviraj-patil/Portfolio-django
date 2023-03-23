@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog/master.css' %}">
+
+</head>
+    
+    <div class="heading">{{blog.title}}<div class="date">{{blog.date|date:'Y M jS'|upper}}</div></div>
+    
+    <div class="description">
+
+        {{blog.description|safe}}
+    </div>
+    <hr>
+    {% endblock %}
+</body>
+</html>
